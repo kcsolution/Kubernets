@@ -299,9 +299,78 @@ rpmdb: PANIC: fatal region error detected; run recovery
         $ yum clean all
         
 ------------------------------------------------------------------------------------------------------------------
+ Após ajustar esses problemas, voltamos para os nós, vamos usar o Token que foi mostrado após a execução do comando:
+      $ sudo kubeadm init .......
  
+-- O próximo passo deve ser executado no seu usuário comum. Perceba que em todo procedimento utilizamos sudo para elevar as permissões. Se você utilizou o atalho de logar diretamente com o root, agora é a hora de voltar ao seu usuário. Feito isso, execute os seguintes comandos:
+
+            $ mkdir -p $HOME/.kube
+            $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+            $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+--Podemos executar o seguinte comando para verificar o pods em execução:
+
+            $ kubectl get pods --all-namespaces
+            
+            **Neste momento, o resultado deve ser como mostra a figura abaixo. Perceba que o pod do DNS permanece pendente. Isso ocorre por que ainda não configuramos a rede. Faremos isso na sequência.
  
- 
- 
- 
- 
+      ** O resultado esperado é:
+            [root@kubernetes-master kleber]# docker info | grep -i cgroup
+            Cgroup Driver: systemd
+            [root@kubernetes-master kleber]# kubectl get pods --all-namespaces
+            NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
+            kube-system   coredns-5c98db65d4-5pdnz                    1/1     Running   0          3d
+            kube-system   coredns-5c98db65d4-hgbt4                    1/1     Running   0          3d
+            kube-system   etcd-kubernetes-master                      1/1     Running   0          3d
+            kube-system   kube-apiserver-kubernetes-master            1/1     Running   0          3d
+            kube-system   kube-controller-manager-kubernetes-master   1/1     Running   1          3d
+            kube-system   kube-flannel-ds-amd64-8c2jv                 1/1     Running   2          2d23h
+            kube-system   kube-flannel-ds-amd64-8qf94                 1/1     Running   0          2d23h
+            kube-system   kube-flannel-ds-amd64-rrlv5                 1/1     Running   0          2d23h
+            kube-system   kube-proxy-4bs5r                            1/1     Running   0          2d23h
+            kube-system   kube-proxy-8ms2n                            1/1     Running   0          2d23h
+            kube-system   kube-proxy-ftqh5                            1/1     Running   0          3d
+            kube-system   kube-scheduler-kubernetes-master            1/1     Running   1          3d
+            [root@kubernetes-master kleber]#
+
+--Agora vamos instalar nossa rede que será responsável pela comunicação entre os nós. Existem vários tipos de redes suportadas pelo Kubernetes. Neste tutorial, utilizaremos a rede Flannel. Para iniciar, execute os seguintes comandos:
+
+            $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+            $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml
+            
+--Pode levar algum tempo até todos os pods estarem rodando. Espere até que os pods fiquem todos no estado de Running. Para verificar o estado execute o seguinte comando:
+
+            $ kubectl get pods --all-namespaces
+
+
+Configurando os nós escravos
+
+Em cada nós escravo é necessário executar o comando kubeadm join para entrar no cluster. O comando exato é mostrado logo após o comando kubeadm init no nó master. Recupere o comando mostrado e execute em cada nó escravo.
+
+Como exemplo, o meu comando foi o seguinte:
+
+      $ sudo kubeadm join 192.168.207.200:6443 --token wo692u.nq96x93oskm97nsn \
+            --discovery-token-ca-cert-hash sha256:69b666799686469f344b430621da92a95bae15f5aff3c5cb5bd58be65032135e
+    
+    
+--Para ter certeza que o nó entrou no cluster volte ao nó master e execute o seguinte comando:
+
+      $ kubectl get nodes
+
+Este comando mostrará os nós disponíveis no cluster. Ao final, o resultado esperado é o seguinte:
+
+            [root@kubernetes-master kleber]# kubectl get nodes
+            NAME                STATUS   ROLES    AGE     VERSION
+            kubernetes-master   Ready    master   3d      v1.15.0
+            kubernetes-node-1   Ready    <none>   2d23h   v1.15.0
+            kubernetes-node-2   Ready    <none>   2d23h   v1.15.0
+
+
+      $ kubeadm token create --print-join-command
+
+Bem gente, é isso! Espero que consigam configurar o cluster de vocês.
+É um pouco trabalhoso, mas se seguir direitinho todos os passos dará certo. 
+
+Abraços e até a próxima!
+
+Kleber Vilarim
