@@ -183,26 +183,7 @@ Inicie o Master com o seguinte comando.
 $  kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU 
 
 ******Se tudo ocorrer bem você receberá uma resposta conforme a tela a seguir.*******
-[root@kubernetes-master kleber]# sudo kubeadm init --pod-network-cidr 192.168.0.0/16
-[init] Using Kubernetes version: v1.15.0
-[preflight] Running pre-flight checks
-error execution phase preflight: [preflight] Some fatal errors occurred:
-        [ERROR NumCPU]: the number of available CPUs 1 is less than the required 2
-[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
-[root@kubernetes-master kleber]#  kubeadm init --pod-network-cidr=10.244.0.0/16
-[init] Using Kubernetes version: v1.15.0
-[preflight] Running pre-flight checks
-error execution phase preflight: [preflight] Some fatal errors occurred:
-        [ERROR NumCPU]: the number of available CPUs 1 is less than the required 2
-[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
-[root@kubernetes-master kleber]#  kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU
-[init] Using Kubernetes version: v1.15.0
-[preflight] Running pre-flight checks
-        [WARNING NumCPU]: the number of available CPUs 1 is less than the required 2
-[preflight] Pulling images required for setting up a Kubernetes cluster
-[preflight] This might take a minute or two, depending on the speed of your internet connection
-[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
-^C
+
 [root@kubernetes-master kleber]#  kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
 [init] Using Kubernetes version: v1.15.0
 [preflight] Running pre-flight checks
