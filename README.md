@@ -184,65 +184,65 @@ $  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-error
 
 ******Se tudo ocorrer bem você receberá uma resposta conforme a tela a seguir.*******
 
-[root@kubernetes-master kleber]#  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-errors=NumCPU
-[init] Using Kubernetes version: v1.15.0
-[preflight] Running pre-flight checks
-        [WARNING NumCPU]: the number of available CPUs 1 is less than the required 2
-[preflight] Pulling images required for setting up a Kubernetes cluster
-[preflight] This might take a minute or two, depending on the speed of your internet connection
-[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
-[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
-[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
-[kubelet-start] Activating the kubelet service
-[certs] Using certificateDir folder "/etc/kubernetes/pki"
-[certs] Generating "front-proxy-ca" certificate and key
-[certs] Generating "front-proxy-client" certificate and key
-[certs] Generating "etcd/ca" certificate and key
-[certs] Generating "etcd/server" certificate and key
-[certs] etcd/server serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.207.200 127.0.0.1 ::1]
-[certs] Generating "etcd/healthcheck-client" certificate and key
-[certs] Generating "etcd/peer" certificate and key
-[certs] etcd/peer serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.207.200 127.0.0.1 ::1]
-[certs] Generating "apiserver-etcd-client" certificate and key
-[certs] Generating "ca" certificate and key
-[certs] Generating "apiserver-kubelet-client" certificate and key
-[certs] Generating "apiserver" certificate and key
-[certs] apiserver serving cert is signed for DNS names [kubernetes-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.207.200]
-[certs] Generating "sa" key and public key
-[kubeconfig] Using kubeconfig folder "/etc/kubernetes"
-[kubeconfig] Writing "admin.conf" kubeconfig file
-[kubeconfig] Writing "kubelet.conf" kubeconfig file
-[kubeconfig] Writing "controller-manager.conf" kubeconfig file
-[kubeconfig] Writing "scheduler.conf" kubeconfig file
-[control-plane] Using manifest folder "/etc/kubernetes/manifests"
-[control-plane] Creating static Pod manifest for "kube-apiserver"
-[control-plane] Creating static Pod manifest for "kube-controller-manager"
-[control-plane] Creating static Pod manifest for "kube-scheduler"
-[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
-[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
-[kubelet-check] Initial timeout of 40s passed.
-[apiclient] All control plane components are healthy after 55.506496 seconds
-[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
-[kubelet] Creating a ConfigMap "kubelet-config-1.15" in namespace kube-system with the configuration for the kubelets in the cluster
-[upload-certs] Skipping phase. Please see #### upload-certs
-[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the label "node-role.kubernetes.io/master=''"
-[mark-control-plane] Marking the node kubernetes-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
-[bootstrap-token] Using token: wo692u.nq96x93oskm97nsn
-[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
-[bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
-[bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
-[bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
-[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
-[addons] Applied essential addon: CoreDNS
-[addons] Applied essential addon: kube-proxy
+                  [root@kubernetes-master kleber]#  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-              errors=NumCPU
+                  [init] Using Kubernetes version: v1.15.0
+                  [preflight] Running pre-flight checks
+                          [WARNING NumCPU]: the number of available CPUs 1 is less than the required 2
+                  [preflight] Pulling images required for setting up a Kubernetes cluster
+                  [preflight] This might take a minute or two, depending on the speed of your internet connection
+                  [preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+                  [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+                  [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+                  [kubelet-start] Activating the kubelet service
+                  [certs] Using certificateDir folder "/etc/kubernetes/pki"
+                  [certs] Generating "front-proxy-ca" certificate and key
+                  [certs] Generating "front-proxy-client" certificate and key
+                  [certs] Generating "etcd/ca" certificate and key
+                  [certs] Generating "etcd/server" certificate and key
+                  [certs] etcd/server serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.207.200 127.0.0.1 ::1]
+                  [certs] Generating "etcd/healthcheck-client" certificate and key
+                  [certs] Generating "etcd/peer" certificate and key
+                  [certs] etcd/peer serving cert is signed for DNS names [kubernetes-master localhost] and IPs [192.168.207.200 127.0.0.1 ::1]
+                  [certs] Generating "apiserver-etcd-client" certificate and key
+                  [certs] Generating "ca" certificate and key
+                  [certs] Generating "apiserver-kubelet-client" certificate and key
+                  [certs] Generating "apiserver" certificate and key
+                  [certs] apiserver serving cert is signed for DNS names [kubernetes-master kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.207.200]
+                  [certs] Generating "sa" key and public key
+                  [kubeconfig] Using kubeconfig folder "/etc/kubernetes"
+                  [kubeconfig] Writing "admin.conf" kubeconfig file
+                  [kubeconfig] Writing "kubelet.conf" kubeconfig file
+                  [kubeconfig] Writing "controller-manager.conf" kubeconfig file
+                  [kubeconfig] Writing "scheduler.conf" kubeconfig file
+                  [control-plane] Using manifest folder "/etc/kubernetes/manifests"
+                  [control-plane] Creating static Pod manifest for "kube-apiserver"
+                  [control-plane] Creating static Pod manifest for "kube-controller-manager"
+                  [control-plane] Creating static Pod manifest for "kube-scheduler"
+                  [etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
+                  [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
+                  [kubelet-check] Initial timeout of 40s passed.
+                  [apiclient] All control plane components are healthy after 55.506496 seconds
+                  [upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
+                  [kubelet] Creating a ConfigMap "kubelet-config-1.15" in namespace kube-system with the configuration for the kubelets in the cluster
+                  [upload-certs] Skipping phase. Please see #### upload-certs
+                  [mark-control-plane] Marking the node kubernetes-master as control-plane by adding the label "node-role.kubernetes.io/master=''"
+                  [mark-control-plane] Marking the node kubernetes-master as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
+                  [bootstrap-token] Using token: wo692u.nq96x93oskm97nsn
+                  [bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+                  [bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+                  [bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+                  [bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+                  [bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
+                  [addons] Applied essential addon: CoreDNS
+                  [addons] Applied essential addon: kube-proxy
 
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+        mkdir -p $HOME/.kube
+        sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+        sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
@@ -257,23 +257,24 @@ kubeadm join 192.168.207.200:6443 #### token wo692u.nq96x93oskm97nsn \
 
 No meu caso aconteceram alguns erros na hora de subir o cluster, caso tenham problemas como esse:
 ____________________________________________________________________________________________________________________________________
-[root@kubernetes-master kleber]# kubeadm init
-I0620 17:48:55.805409   27046 version.go:240] remote version is much newer: v1.15.0; falling back to: stable-1.14
-[init] Using Kubernetes version: v1.14.3
-[preflight] Running pre-flight checks
-        [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
-error execution phase preflight: [preflight] Some fatal errors occurred:
-        [ERROR NumCPU]: the number of available CPUs 1 is less than the required 2
-[preflight] If you know what you are doing, you can make a check non-fatal with `#### ignore-preflight-errors=...`
+
+                  [root@kubernetes-master kleber]# kubeadm init
+                  I0620 17:48:55.805409   27046 version.go:240] remote version is much newer: v1.15.0; falling back to: stable-1.14
+                  [init] Using Kubernetes version: v1.14.3
+                  [preflight] Running pre-flight checks
+                          [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
+                  error execution phase preflight: [preflight] Some fatal errors occurred:
+                          [ERROR NumCPU]: the number of available CPUs 1 is less than the required 2
+                  [preflight] If you know what you are doing, you can make a check non-fatal with `#### ignore-preflight-errors=...`
 
 
-**Erro de versão, repare que estou usando a versão 1.14.3 e necessita da v1.15:0
-        #### O comando para ajustar isso é:
-        **Verificar as versões existentes
-         $ yum list #### showduplicates kubeadm #### disableexcludes=kubernetes
-        **Após a verificação, instalei a última versão, conforme o erro acima, em cada um dos nós 
-         $ yum install -y kubeadm-1.15.0-0 #### disableexcludes=kubernetes
- 
+            **Erro de versão, repare que estou usando a versão 1.14.3 e necessita da v1.15:0
+                    #### O comando para ajustar isso é:
+                    **Verificar as versões existentes
+                     $ yum list #### showduplicates kubeadm #### disableexcludes=kubernetes
+                    **Após a verificação, instalei a última versão, conforme o erro acima, em cada um dos nós 
+                     $ yum install -y kubeadm-1.15.0-0 #### disableexcludes=kubernetes
+
  **No erro acima, tem um outro problema que é: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd", 
  para corrigir isso eu executei os procedimentos do site abaixo, relaciona a minha versão que é o CentOS.
  
@@ -285,12 +286,12 @@ ________________________________________________________________________________
  Yum Update: DB_RUNRECOVERY Fatal error, run database recovery
  
          # yum update
-...
-rpmdb: page 18816: illegal page type or format
-rpmdb: PANIC: Invalid argument
-rpmdb: Packages: pgin failed for page 18816
-error: db4 error(-30974) from dbcursor->c_get: DB_RUNRECOVERY: Fatal error, run database recovery
-rpmdb: PANIC: fatal region error detected; run recovery
+            ...
+            rpmdb: page 18816: illegal page type or format
+            rpmdb: PANIC: Invalid argument
+            rpmdb: Packages: pgin failed for page 18816
+            error: db4 error(-30974) from dbcursor->c_get: DB_RUNRECOVERY: Fatal error, run database recovery
+            rpmdb: PANIC: fatal region error detected; run recovery
 
 #### remove the RPM database, rebuild it and let yum download all the mirror's file lists.
 
@@ -300,7 +301,8 @@ rpmdb: PANIC: fatal region error detected; run recovery
         
 #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
  Após ajustar esses problemas, voltamos para os nós, vamos usar o Token que foi mostrado após a execução do comando:
-      $ sudo kubeadm init .......
+ 
+             $ sudo kubeadm init .......
  
 ####  O próximo passo deve ser executado no seu usuário comum. Perceba que em todo procedimento utilizamos sudo para elevar as permissões. Se você utilizou o atalho de logar diretamente com o root, agora é a hora de voltar ao seu usuário. Feito isso, execute os seguintes comandos:
 
