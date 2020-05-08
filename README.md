@@ -356,7 +356,9 @@ Como exemplo, o meu comando foi o seguinte:
 
       $ sudo kubeadm join 192.168.207.200:6443 #### token wo692u.nq96x93oskm97nsn \
             #### discovery-token-ca-cert-hash sha256:69b666799686469f344b430621da92a95bae15f5aff3c5cb5bd58be65032135e
-    
+    ou
+    $ sudo kubeadm join 192.168.58.134:6443 --token qh8vmd.lu1hjljq5b5bh9pr \
+    --discovery-token-ca-cert-hash sha256:b34a48721bdefaf3383f0598233a6faa7f0c6f054f7e3c70a7b7546f95eb560e
     
 #### Para ter certeza que o nó entrou no cluster volte ao nó master e execute o seguinte comando:
 
