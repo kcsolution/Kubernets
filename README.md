@@ -181,7 +181,9 @@ Agora vamos realizar a configuração do nó master do Kubernetes. Este é a ún
 
 Inicie o Master com o seguinte comando.
 
-$  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-errors=NumCPU 
+$  kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU 
+$  kubeadm init --ignore-preflight-errors=NumCPU --apiserver-advertise-address=10.8.0.10 --pod-network-cidr=192.168.0.0/16
+
 
 ******Se tudo ocorrer bem você receberá uma resposta conforme a tela a seguir.*******
 
