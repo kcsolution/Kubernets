@@ -32,7 +32,7 @@ Estas configurações deverão ser realizadas em todas os hosts que comporão o 
 #### Desabilite o SELinux do CentOS.
 
       $ sudo setenforce 0
-      $ sudo sed -i #### follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+      $ sudo sed -i follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
       
 #### Execute o comando a seguir para corrigir possíveis falhas de roteamento.
 
@@ -44,7 +44,7 @@ Estas configurações deverão ser realizadas em todas os hosts que comporão o 
   
 #### Execute o comando abaixo para aplicar as configurações.
 
-      $ sudo sysctl #### system
+      $ sudo sysctl -p system
 
 #### Desabilite o SWAP comentando (coloque # no início) a linha que começa com /dev/mapper/centos-swap do arquivo /etc/fstab.
 
