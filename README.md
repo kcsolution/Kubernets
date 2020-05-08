@@ -7,6 +7,9 @@ Estas configurações deverão ser realizadas em todas os hosts que comporão o 
 #### Para iniciar, tome nota do hostname de cada máquina do cluster. Caso não saiba os nomes das máquinas você pode utilizar o seguinte comando para descobrir:
 
       $ hostname
+      $ hostnamectl set-hostname kubernetes-master
+      $ hostnamectl set-hostname kubernetes-slave1
+      $ hostnamectl set-hostname kubernetes-slave2
   
 #### Essas informações serão importante em toda configuração. No meu caso, tenho os seguintes hostnames:
 
