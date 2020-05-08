@@ -185,7 +185,7 @@ $  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-error
 
 ******Se tudo ocorrer bem você receberá uma resposta conforme a tela a seguir.*******
 
-                  [root@kubernetes-master kleber]#  kubeadm init #### pod-network-cidr=192.168.0.0/16 #### ignore-preflight-              errors=NumCPU
+                  [root@kubernetes-master kleber]#  kubeadm init pod-network-cidr=192.168.0.0/16 ignore-preflight-errors=NumCPU
                   [init] Using Kubernetes version: v1.15.0
                   [preflight] Running pre-flight checks
                           [WARNING NumCPU]: the number of available CPUs 1 is less than the required 2
