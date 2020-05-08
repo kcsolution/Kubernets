@@ -82,9 +82,7 @@ Estas configurações deverão ser realizadas em todas os hosts que comporão o 
 
 #### Em seguida, adicione o repositório do Docker-CE de versões estáveis.
 
-      $ sudo yum-config-manager \
-        add-repo \
-        https://download.docker.com/linux/centos/docker-ce.repo
+      $ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
           
 #### Execute o seguinte comando para instalar o docker:
 
